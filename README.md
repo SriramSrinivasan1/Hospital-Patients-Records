@@ -1,66 +1,113 @@
-## 🌟 Overview
-This project showcases my skills in **data analytics**, **visualization**, and **data storytelling** using **Python** and **Power BI**. The goal was to process, clean, and analyze synthetic hospital datasets (2011-2022, Massachusetts) and present actionable insights through interactive dashboards.
+# 🏥 Hospital Patient Records Analytics
+### End-to-End Healthcare Analytics | Python · Power BI · DAX
 
-## 🎯 Objective
-To analyze patient records and build a dashboard for hospital stakeholders, highlighting trends, KPIs, and metrics of interest.
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?logo=jupyter&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
 
-## 📊 Data Description
-The project uses five datasets:
+---
 
-1. **Encounters**: Purpose of each patient visit (e.g., in-patient, outpatient, surgery, etc.).
-2. **Patients**: Biographical details, such as name, address, marital status, and ethnicity.
-3. **Procedures**: Medical procedures provided (e.g., MRI, depression screening).
-4. **Organizations**: High-level hospital information (used minimally).
-5. **Payers**: Major U.S. health insurance providers (used minimally).
+## Overview
 
-## 🛠️ Tools & Techniques
-- **Python**: Data cleaning, exploratory data analysis
-- **Power BI**: Dashboard creation
-- **DAX Functions**: Relationships, calculated fields
+This project demonstrates a full analytics workflow applied to synthetic hospital patient records spanning **2011–2022** across Massachusetts healthcare facilities. Starting from raw, messy multi-table data, the analysis covers data cleaning, feature engineering, cross-table integration, and stakeholder-ready dashboard delivery via Power BI.
 
-## 💡 Key Highlights
+The goal was to surface actionable KPIs around patient admissions, readmissions, procedure costs, and insurance coverage — insights that hospital operations and finance teams can act on directly.
 
-### Data Cleaning:
-1. Standardized names using **regex** and fixed 4-digit zip codes with Python **lambda** functions.
-2. Created calculated fields like **Age** (difference between DOB and current date) and **Full Name** (concatenation).
+---
 
-### Imputation & Transformation:
-1. Imputed missing procedure codes with 'unknown' or '0'.
-2. Calculated **Duration** of medical procedures using start/stop times.
+## Dataset
 
-### Insight Generation:
-1. Classified admissions as **First-Time** or **Readmissions** with flag columns.
-2. Analyzed **average stay duration** and **insurance costs** by encounter type.
-3. Merged data to identify procedures covered by insurance, categorized by provider.
+Five interconnected synthetic datasets sourced from a Massachusetts hospital system (2011–2022):
 
-### Power BI Dashboards:
-1. Built relationships across tables using shared keys.
-2. Created **Age Categories** using **DAX nested IF statements**.
-3. Developed visuals for readmission trends, procedure costs, and insurance breakdowns.
+| Table | Description |
+|---|---|
+| `Encounters` | Each patient visit, including type (inpatient, outpatient, surgery, etc.) and associated costs |
+| `Patients` | Biographical details — name, address, DOB, marital status, ethnicity |
+| `Procedures` | Medical procedures performed per encounter (e.g., MRI, depression screening) |
+| `Organizations` | High-level hospital/facility metadata |
+| `Payers` | Major U.S. health insurance provider records |
 
-## 🌟 Challenges & Solutions
+> **Note:** All data is synthetic and intended for educational and portfolio purposes only. No real patient information is used.
 
-### Understanding Domain-Specific Data:
-Initially, distinguishing between **Encounters** and **Procedures** was challenging. Research clarified their unique roles in hospital analytics, improving analysis depth.
+---
 
-### Integrating Data:
-Combining tables like **Procedures** and **Encounters** required SQL-like joins in Python, involving key identification and thoughtful merging.
+## Methodology
 
-### Prioritizing KPIs:
-Choosing metrics required stakeholder perspective, focusing on insights that truly matter.
+### 1. Data Cleaning & Standardization
+- Standardized patient names using **regex** pattern matching to handle inconsistent formatting
+- Corrected malformed 4-digit ZIP codes using Python **lambda** functions
+- Imputed missing procedure codes with `'unknown'` or `0` to preserve record completeness
 
-## 📈 Results
-- Visualized patient trends and billing metrics
-- Provided actionable insights for stakeholders
-- Delivered a dashboard demonstrating clean data and impactful visual storytelling
+### 2. Feature Engineering
+- Computed **Age** from date of birth relative to current date
+- Constructed **Full Name** field via string concatenation
+- Calculated **Procedure Duration** from start/stop timestamps
+- Created **Admission Type Flag** classifying each encounter as a first-time visit or readmission
 
-## 📸 Visuals
-Static screenshots of Power BI dashboard are included in this repository.
+### 3. Cross-Table Integration
+- Performed SQL-style **joins in Python** (pandas merge) across Encounters, Procedures, Patients, and Payers
+- Identified procedures covered by insurance, segmented by provider
 
-## 🔗 Repository Contents
-- **`Hospital Patient Records.py`**: Python script for data preprocessing and analysis
-- **`Hospital Dashboard.png`**: Power BI dashboard (static screenshots)
+### 4. Power BI Dashboard Development
+- Built table relationships using shared keys across all five datasets
+- Created **Age Category** groups using DAX nested `IF` statements
+- Designed interactive visuals covering readmission trends, procedure costs, average stay duration, and insurance breakdowns
 
-## 🚀 Next Steps
-- Explore predictive modeling using this dataset
-- Enhance dashboards with user-interactive features
+---
+
+## Key Findings
+
+- **Readmission patterns** vary meaningfully by encounter type, with inpatient stays showing the highest readmission rates
+- **Average stay duration** differs substantially across encounter categories, with surgical admissions averaging the longest stays
+- **Insurance coverage gaps** exist across specific procedure types, with certain providers leaving a higher share of procedure costs uncovered
+- **Age distribution** of patients skews toward older cohorts, consistent with higher utilization of inpatient and surgical services
+
+---
+
+## Tools & Technologies
+
+| Tool | Purpose |
+|---|---|
+| Python (pandas, re) | Data ingestion, cleaning, transformation, feature engineering |
+| Jupyter Notebook | Exploratory analysis and workflow documentation |
+| Power BI | Interactive dashboard creation and stakeholder delivery |
+| DAX | Calculated columns, measures, and age segmentation logic |
+
+---
+
+## Repository Contents
+
+```
+Hospital-Patients-Records/
+├── Hospital Patients Records.ipynb   # Full Python analysis: cleaning, EDA, feature engineering
+├── Hospital Dashboard.png            # Power BI dashboard (static screenshot)
+├── hospital_analytics_portfolio.pdf  # Project summary document
+└── README.md
+```
+
+---
+
+## Dashboard Preview
+
+![Hospital Dashboard](Hospital%20Dashboard.png)
+
+---
+
+## Challenges & How They Were Solved
+
+**Understanding domain-specific data structures** — Encounters and Procedures represent distinct but related clinical concepts. Clarifying their relationship through domain research improved the depth and accuracy of the analysis.
+
+**Multi-table integration** — Joining five tables with different granularities required careful key identification and deliberate merge strategies to avoid row duplication and data loss.
+
+**KPI prioritization** — With many possible metrics available, the analysis was scoped by thinking from a hospital stakeholder perspective: what do operations leads and finance teams actually need to make decisions?
+
+---
+
+## Next Steps
+
+- Apply **predictive modeling** (e.g., logistic regression or gradient boosting) to predict readmission risk at the patient level
+- Enrich the dashboard with **drill-through pages** for individual facility or payer deep-dives
+- Incorporate **time-series analysis** to surface seasonal admission trends across the 11-year dataset
+
+---
