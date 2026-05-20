@@ -1,4 +1,4 @@
-https://github.com/SriramSrinivasan1/Hospital-Patients-Records/tree/main/data-and-data-dictionary# 🏥 Hospital Patient Records Analytics
+# 🏥 Hospital Patient Records Analytics
 ### End-to-End Healthcare Analytics | Python · Power BI · DAX
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
