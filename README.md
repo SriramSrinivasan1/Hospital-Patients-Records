@@ -1,4 +1,4 @@
-# 🏥 Hospital Patient Records Analytics
+https://github.com/SriramSrinivasan1/Hospital-Patients-Records/tree/main/data-and-data-dictionary# 🏥 Hospital Patient Records Analytics
 ### End-to-End Healthcare Analytics | Python · Power BI · DAX
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
@@ -9,7 +9,7 @@
 
 ## Overview
 
-This project demonstrates a full analytics workflow applied to synthetic hospital patient records spanning **2011–2022** across Massachusetts healthcare facilities. Starting from raw, messy multi-table data, the analysis covers data cleaning, feature engineering, cross-table integration, and stakeholder-ready dashboard delivery via Power BI.
+This project demonstrates a full analytics workflow applied to synthetic hospital patient records spanning **2011–2022** across Massachusetts healthcare facilities. Starting from ![raw, messy multi-table data](https://github.com/SriramSrinivasan1/Hospital-Patients-Records/tree/main/data-and-data-dictionary), the analysis covers data cleaning, feature engineering, cross-table integration, and stakeholder-ready dashboard delivery via Power BI.
 
 The goal was to surface actionable KPIs around patient admissions, readmissions, procedure costs, and insurance coverage — insights that hospital operations and finance teams can act on directly.
 
